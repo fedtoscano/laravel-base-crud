@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container container-fluid">
         <div class="row">
             <div class="col-12">
                 <table class="table table-striped">
@@ -25,6 +25,7 @@
                         <th scope="col">Habitat</th>
                         <th scope="col">Salute</th>
                         <th scope="col">Note</th>
+                        <th scope="col">Azioni</th>
                     </tr>
                     </thead>
 
@@ -41,6 +42,12 @@
                         <td>{{$singleAnimal->Habitat}}</td>
                         <td>{{$singleAnimal->Salute}}</td>
                         <td>{{$singleAnimal->Note}}</td>
+                        <td>
+                            <a href="{{Route("pages.admin.show", ["id" => $singleAnimal->id])}}" class="btn btn-primary btn-sm">View</a>
+                            <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+
                     </tr>
                     @endforeach
                     </tbody>
