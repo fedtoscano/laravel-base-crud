@@ -19,5 +19,10 @@ class AnimalController extends Controller
 
     public function show(){
         //restituisce solo alcuni animali
+        $animals = Animal::get();
+
+
+
+
     }
 }

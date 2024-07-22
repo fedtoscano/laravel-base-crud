@@ -36,7 +36,6 @@ class AnimalSeeder extends Seeder
                 //salvo l'istanza
                 $newAnimal->save();
             }
-
         }
         var_dump($animalsData);
     }

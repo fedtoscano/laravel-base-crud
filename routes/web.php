@@ -19,8 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('admin/animals', [AnimalController::class, 'index'])->name('pages.admin.index');
+Route::get('admin/animals/{id}', [AnimalController::class, 'show'])->name('pages.admin.show');
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
