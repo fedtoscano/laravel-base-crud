@@ -32,10 +32,11 @@ class AnimalSeeder extends Seeder
                 $newAnimal->Habitat = $singleAnimalData[7];
                 $newAnimal->Salute = $singleAnimalData[8];
                 $newAnimal->Note = $singleAnimalData[9];
+
+                //salvo l'istanza
+                $newAnimal->save();
             }
 
-            //salvo l'istanza
-            $newAnimal->save();
         }
         var_dump($animalsData);
     }
