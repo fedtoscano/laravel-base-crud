@@ -28,6 +28,9 @@ class AnimalController extends Controller
 
     //funzione create
     public function create(Request $request){
-        $data = Request->All();
+        //creo il nuovo animale con i dati della $request
+        $newAnimal = Animal::create($request);
+
+        redirect()->route("pages.admin.index");
     }
 }
