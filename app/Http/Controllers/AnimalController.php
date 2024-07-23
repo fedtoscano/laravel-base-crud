@@ -35,7 +35,8 @@ class AnimalController extends Controller
     //funzione store
     public function store(Request $request){
         //creo un nuovo animale con il payload in arrivo dal form
-        $newAnimal = Animal::create($request);
+        $data = $request->all();
+        $newAnimal = Animal::create($data);
 
         //reindirizzo l'utente alla homepage
         return redirect()->route("pages.admin.index");
