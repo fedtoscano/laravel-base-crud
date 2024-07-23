@@ -22,7 +22,6 @@
                         <h6 class="card-subtitle mb-2 text-muted">Arrivato il {{$singleAnimal->Data_di_Arrivo}}</h6>
                         <h6 class="card-subtitle mb-2 text-muted">Peso: {{$singleAnimal->Peso}}kg</h6>
                         <p class="card-text">{{$singleAnimal->Note}}</p>
-
                     </div>
                 </div>
 

@@ -17,11 +17,17 @@ class AnimalController extends Controller
         return view("pages.guest.admin.index", compact("animals"));
     }
 
+    //funzione show
     public function show($id){
         // Recupero l'animale dal database in base all'ID
         $singleAnimal = Animal::findOrFail($id);
 
         // Restituisce la vista 'animals.show' con i dati dell'animale
         return view('pages.guest.admin.show', compact("singleAnimal"));
+    }
+
+    //funzione create
+    public function create(Request $request){
+        $data = Request->All();
     }
 }
