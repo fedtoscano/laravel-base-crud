@@ -21,6 +21,6 @@ Route::get('/', function () {
 Route::get('admin/animals', [AnimalController::class, 'index'])->name('pages.admin.index');
 
 Route::get("admin/animals/create", [AnimalController::class, 'create'])->name("pages.admin.create");
-Route::post("admin/animals", AnimalController::class, "store")->name("pages.admin.store");
+Route::post("admin/animals", [AnimalController::class, "store"])->name("pages.admin.store");
 Route::get('admin/animals/{id}', [AnimalController::class, 'show'])->name('pages.admin.show');
 
