@@ -27,10 +27,17 @@ class AnimalController extends Controller
     }
 
     //funzione create
-    public function create(Request $request){
-        //creo il nuovo animale con i dati della $request
+    public function create(){
+        //indirizzo l'utente alla pagina con il form da compilare:
+            return view("pages.guest.admin.create");
+    }
+
+    //funzione store
+    public function store(Request $request){
+        //creo un nuovo animale con il payload in arrivo dal form
         $newAnimal = Animal::create($request);
 
-        redirect()->route("pages.admin.index");
+        //reindirizzo l'utente alla homepage
+        return redirect()->route("pages.admin.index");
     }
 }
