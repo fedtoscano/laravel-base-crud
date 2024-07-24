@@ -71,6 +71,8 @@
                             <button class="btn btn-primary btn-sm" type="submit">Modifica {{$animal->Nome}}</button>
                         </div>
                     </form>
+
+
                 </div>
             </div>
         </div>

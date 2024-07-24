@@ -44,10 +44,13 @@
                         <td>{{$singleAnimal->Note}}</td>
                         <td>
                             <a href="{{Route("pages.admin.show", ["id" => $singleAnimal->id])}}" class="btn btn-primary btn-sm">View</a>
-                            <a href="{{Route("admin.animal.edit", ["animal" => "$singleAnimal"])}}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{Route("admin.animal.edit", ["animal" => "$singleAnimal->id"])}}" class="btn btn-warning btn-sm">Edit</a>
 
-                            {{-- ! DELETE DEVE ESSERE UN FORM PER POTER USARE IL METODO DELETE  --}}
-                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                            <form action="{{route("admin.animal.destroy", ["id" => "$singleAnimal->id"])}}" method="POST">
+                                @method("DELETE")
+                                @csrf
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            </form>
                         </td>
 
                     </tr>
