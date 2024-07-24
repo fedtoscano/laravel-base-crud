@@ -41,4 +41,21 @@ class AnimalController extends Controller
         //reindirizzo l'utente alla homepage
         return redirect()->route("pages.admin.index");
     }
+
+    //funzione edit
+    public function edit(Animal $animal){
+
+        return view("pages.guest.admin.edit", compact("animal"));
+    }
+
+    //funzione update
+    public function update(Request $request, Animal $animal){
+        $data = $request->all();
+        $animal->update($data);
+
+        return redirect()->route("pages.admin.show", $animal->id);
+    }
+
+
+    //funzione destroy
 }
