@@ -17,7 +17,7 @@
                         <h2>Vuoi editare {{$animal->Nome}}?</h2>
                     </header>
 
-                    <form action="{{ route("admin.animal.update")}}" method="POST">
+                    <form action="{{ route("admin.animal.update", ["animal"=> $animal])}}" method="POST">
                         @method("PUT")
                         @csrf
 

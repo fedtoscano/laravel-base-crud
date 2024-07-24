@@ -44,7 +44,7 @@ class AnimalController extends Controller
 
     //funzione edit
     public function edit(Animal $animal){
-
+        //restituisce la pagina di edit
         return view("pages.guest.admin.edit", compact("animal"));
     }
 
