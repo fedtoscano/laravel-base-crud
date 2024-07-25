@@ -50,10 +50,10 @@
                                 <button class="btn btn-warning btn-sm">Restore</button>
                             </form>
 
-                            <form action="{{route("admin.animal.destroy", ["id" => "$singleAnimal->id"])}}" method="POST">
+                            <form action="{{route("animals.permanent.delete", ["id" => "$singleAnimal->id"])}}" method="POST">
                                 @csrf
                                 @method("DELETE")
-                                <button class="btn btn-danger btn-sm">Delete</button>
+                                <button class="btn btn-danger btn-sm">Permanent Delete</button>
                             </form>
                         </td>
 

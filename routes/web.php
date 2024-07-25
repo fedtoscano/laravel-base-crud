@@ -13,7 +13,7 @@ Route::post("admin/animals", [AnimalController::class, 'store'])->name("pages.ad
 
 Route::get("admin/animals/deleted", [AnimalController::class, 'deletedAnimals'])->name("animals.deleted");
 Route::patch("admin/animals/{id}/restore", [AnimalController::class, 'restore'])->name("animal.restore");
-
+Route::delete("admin/animals/{id}/delete", [AnimalController::class, "permanentDelete"])->name("animals.permanent.delete");
 Route::put("admin/animals/{animal}/edit", [AnimalController::class, 'update'])->name("admin.animal.update");
 Route::get("admin/animals/{animal}/edit", [AnimalController::class, 'edit'])->name("admin.animal.edit");
 Route::delete("admin/animals/{id}", [AnimalController::class, 'destroy'])->name("admin.animal.destroy");

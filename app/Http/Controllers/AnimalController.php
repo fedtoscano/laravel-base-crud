@@ -78,4 +78,12 @@ class AnimalController extends Controller
         $animalToRestore->restore();
         return redirect()->route("pages.admin.index")->with("restored-message", $animalToRestore->Nome . " has successfully been restored");
     }
+
+    //funzione permadelete
+    public function permanentDelete($id){
+        $animalToDelete = Animal::onlyTrashed()->findOrFail($id);
+        $animalToDelete->forceDelete();
+
+        return redirect()->route("pages.admin.index")->with("deleted-message", $animalToDelete->Nome . " has successfully been deleted");
+    }
 }
