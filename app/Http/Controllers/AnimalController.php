@@ -56,7 +56,6 @@ class AnimalController extends Controller
         return redirect()->route("pages.admin.show", $animal->id);
     }
 
-
     //funzione destroy
     public function destroy($id){
         $animalToDestroy = Animal::findOrFail($id);
