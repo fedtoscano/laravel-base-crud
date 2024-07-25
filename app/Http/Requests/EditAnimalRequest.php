@@ -63,7 +63,7 @@ class EditAnimalRequest extends FormRequest
 
             //
             "Peso.required"=>"Il Peso è un campo obbligatorio",
-            "Peso.string"=>"Il Peso deve essere un numero",
+            "Peso.integer"=>"Il Peso deve essere un numero",
 
             //
             "Habitat.min"=>"L'Habitat deve essere di almeno 3 caratteri",
