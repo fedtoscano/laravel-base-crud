@@ -63,6 +63,12 @@ class AnimalController extends Controller
         $animalToDestroy = Animal::findOrFail($id);
         $animalToDestroy->delete();
 
-        return redirect()->route("pages.admin.index");
+        return redirect()->route("animals.deleted");
+    }
+
+    //funzione "cestino"
+    public function deletedAnimals(){
+        $data = Animal::onlyTrashed()->get();
+        return view("pages.guest.admin.deleted", ["animals" => $data]);
     }
 }
