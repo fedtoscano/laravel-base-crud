@@ -16,6 +16,18 @@
                     <h1>Inserisci un nuovo animale!</h1>
                 </header>
 
+                {{--! SE CI SONO ERRORI, MOSTRALI IN QUESTO DIV--}}
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
+                {{-- FORM --}}
                 <form action="{{ route("pages.admin.store")}}" method="POST">
                     @csrf
 
@@ -69,6 +81,7 @@
                         <button class="btn btn-primary btn-sm" type="submit">Aggiungi il nuovo animale</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
