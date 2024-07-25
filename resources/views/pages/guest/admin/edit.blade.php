@@ -9,13 +9,23 @@
 
 </head>
 <body>
-
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-6">
                     <header>
                         <h2>Vuoi editare {{$animal->Nome}}?</h2>
                     </header>
+
+                {{--! SE CI SONO ERRORI, MOSTRALI IN QUESTO DIV--}}
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
 
                     <form action="{{ route("admin.animal.update", ["animal"=> $animal])}}" method="POST">
                         @method("PUT")

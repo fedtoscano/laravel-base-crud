@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EditAnimalRequest;
 use App\Http\Requests\StoreAnimalRequest;
 use Illuminate\Http\Request;
 use App\Models\Animal as Animal;
@@ -50,8 +51,8 @@ class AnimalController extends Controller
     }
 
     //funzione update
-    public function update(Request $request, Animal $animal){
-        $data = $request->all();
+    public function update(EditAnimalRequest $request, Animal $animal){
+        $data = $request->validated();
         $animal->update($data);
 
         return redirect()->route("pages.admin.show", $animal->id);
