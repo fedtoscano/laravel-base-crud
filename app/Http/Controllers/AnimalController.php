@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAnimalRequest;
 use Illuminate\Http\Request;
 use App\Models\Animal as Animal;
 
@@ -33,9 +34,9 @@ class AnimalController extends Controller
     }
 
     //funzione store
-    public function store(Request $request){
+    public function store(StoreAnimalRequest $request){
         //creo un nuovo animale con il payload in arrivo dal form
-        $data = $request->all();
+        $data = $request->validated();
         $newAnimal = Animal::create($data);
 
         //reindirizzo l'utente alla homepage
