@@ -3,30 +3,19 @@
 use App\Http\Controllers\AnimalController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('admin/animals', [AnimalController::class, 'index'])->name('pages.admin.index');
-
 Route::get("admin/animals/create", [AnimalController::class, 'create'])->name("pages.admin.create");
-Route::post("admin/animals", [AnimalController::class, "store"])->name("pages.admin.store");
+Route::post("admin/animals", [AnimalController::class, 'store'])->name("pages.admin.store");
 
-Route::get("admin/animals/deleted", [AnimalController::class, "deletedAnimals"])->name("animals.deleted");
+Route::get("admin/animals/deleted", [AnimalController::class, 'deletedAnimals'])->name("animals.deleted");
+Route::patch("admin/animals/{id}/restore", [AnimalController::class, 'restore'])->name("animal.restore");
 
-Route::put("admin/animals/{animal}/edit", [AnimalController::class, "update"])->name("admin.animal.update");
-Route::get("admin/animals/{animal}/edit", [AnimalController::class, "edit"])->name("admin.animal.edit");
-Route::delete("admin/animals/{id}", [AnimalController::class, "destroy"])->name("admin.animal.destroy");
+Route::put("admin/animals/{animal}/edit", [AnimalController::class, 'update'])->name("admin.animal.update");
+Route::get("admin/animals/{animal}/edit", [AnimalController::class, 'edit'])->name("admin.animal.edit");
+Route::delete("admin/animals/{id}", [AnimalController::class, 'destroy'])->name("admin.animal.destroy");
 
 Route::get('admin/animals/{id}', [AnimalController::class, 'show'])->name('pages.admin.show');

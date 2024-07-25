@@ -44,12 +44,15 @@
                         <td>{{$singleAnimal->Salute}}</td>
                         <td>{{$singleAnimal->Note}}</td>
                         <td>
-                            <a href="{{Route("pages.admin.show", ["id" => $singleAnimal->id])}}" class="btn btn-primary btn-sm">View</a>
-                            <a href="{{Route("admin.animal.edit", ["animal" => "$singleAnimal->id"])}}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route( "animal.restore", ["id" => $singleAnimal->id]) }}" method="POST">
+                                @csrf
+                                @method("PATCH")
+                                <button class="btn btn-warning btn-sm">Restore</button>
+                            </form>
 
                             <form action="{{route("admin.animal.destroy", ["id" => "$singleAnimal->id"])}}" method="POST">
-                                @method("DELETE")
                                 @csrf
+                                @method("DELETE")
                                 <button class="btn btn-danger btn-sm">Delete</button>
                             </form>
                         </td>

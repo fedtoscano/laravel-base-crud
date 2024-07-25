@@ -12,6 +12,13 @@
     <div class="container container-fluid">
         <div class="row">
             <div class="col-12">
+
+                @if(session('restored-message'))
+                    <div class="alert alert-success">
+                        {{ session('restored-message') }}
+                    </div>
+                @endif
+
                 <table class="table table-striped">
                     <thead>
                     <tr>

@@ -71,4 +71,11 @@ class AnimalController extends Controller
         $data = Animal::onlyTrashed()->get();
         return view("pages.guest.admin.deleted", ["animals" => $data]);
     }
+
+    //funzione restore
+    public function restore($id){
+        $animalToRestore = Animal::onlyTrashed()->findOrFail($id);
+        $animalToRestore->restore();
+        return redirect()->route("pages.admin.index")->with("restored-message", $animalToRestore->Nome . " has successfully been restored");
+    }
 }
